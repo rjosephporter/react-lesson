@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import appClasses from './App.module.css';
 import Person from './Person/Person';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-  background-color: ${ props => props.alt ? 'red' : 'green' };
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-  
-  &:hover {
-    background-color: lightgreen;
-    color: black;
-  }
-`
 
 class App extends Component {
   state = {
@@ -78,10 +64,10 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={ appClasses.App }>
         <h1>Hello world!</h1>
         <p className={ classes.join(' ') }>This is a react app</p>
-        <StyledButton alt={ this.state.showPersons } onClick={ this.togglePersonsHandler }>Toggle</StyledButton>
+        <button className= { appClasses.Button } onClick={ this.togglePersonsHandler }>Toggle</button>
         { persons }
       </div>
     )
